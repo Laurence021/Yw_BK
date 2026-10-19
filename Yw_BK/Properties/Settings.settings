@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Yw_BK.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UrlPIN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.pinnacle.com/</Value>
+    </Setting>
+    <Setting Name="Url365" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UrlXB" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UrlJZ" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UrlKU" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UrlDafa" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UrlSB" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UrlVBET" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UrlLEO" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UrlPIN_Asia" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.pinnacle888.com/</Value>
+    </Setting>
+    <Setting Name="UrlSBO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.sbogogo.com/</Value>
+    </Setting>
+    <Setting Name="UrlMyStake" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://mystake.bet/en/</Value>
+    </Setting>
+    <Setting Name="UrlXB_New" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="UrlRadar" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://api.betradar.com/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

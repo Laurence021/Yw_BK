@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="k12001" xml:space="preserve">
+    <value>Full Time</value>
+  </data>
+  <data name="k12002" xml:space="preserve">
+    <value>Full Time</value>
+  </data>
+  <data name="k12003" xml:space="preserve">
+    <value>Full Time</value>
+  </data>
+  <data name="k12004" xml:space="preserve">
+    <value>Full Time</value>
+  </data>
+  <data name="k12005" xml:space="preserve">
+    <value>Full Time-A Team Total Score</value>
+  </data>
+  <data name="k12006" xml:space="preserve">
+    <value>Full Time-A Team Total Score</value>
+  </data>
+  <data name="k12007" xml:space="preserve">
+    <value>Full Time-B Team Total Score</value>
+  </data>
+  <data name="k12008" xml:space="preserve">
+    <value>Full Time-B Team Total Score</value>
+  </data>
+  <data name="k12101" xml:space="preserve">
+    <value>1st Half</value>
+  </data>
+  <data name="k12102" xml:space="preserve">
+    <value>1st Half</value>
+  </data>
+  <data name="k12103" xml:space="preserve">
+    <value>1st Half</value>
+  </data>
+  <data name="k12104" xml:space="preserve">
+    <value>1st Half</value>
+  </data>
+  <data name="k12105" xml:space="preserve">
+    <value>1st Half-A Team Total Score</value>
+  </data>
+  <data name="k12106" xml:space="preserve">
+    <value>1st Half-A Team Total Score</value>
+  </data>
+  <data name="k12107" xml:space="preserve">
+    <value>1st Half-B Team Total Score</value>
+  </data>
+  <data name="k12108" xml:space="preserve">
+    <value>1st Half-B Team Total Score</value>
+  </data>
+  <data name="k12201" xml:space="preserve">
+    <value>2nd Half</value>
+  </data>
+  <data name="k12202" xml:space="preserve">
+    <value>2nd Half</value>
+  </data>
+  <data name="k12203" xml:space="preserve">
+    <value>2nd Half</value>
+  </data>
+  <data name="k12204" xml:space="preserve">
+    <value>2nd Half</value>
+  </data>
+  <data name="k12205" xml:space="preserve">
+    <value>2nd Half-A Team Total Score</value>
+  </data>
+  <data name="k12206" xml:space="preserve">
+    <value>2nd Half-A Team Total Score</value>
+  </data>
+  <data name="k12207" xml:space="preserve">
+    <value>2nd Half-B Team Total Score</value>
+  </data>
+  <data name="k12208" xml:space="preserve">
+    <value>2nd Half-B Team Total Score</value>
+  </data>
+  <data name="k12301" xml:space="preserve">
+    <value>1 Quarter</value>
+  </data>
+  <data name="k12302" xml:space="preserve">
+    <value>1 Quarter</value>
+  </data>
+  <data name="k12303" xml:space="preserve">
+    <value>1 Quarter</value>
+  </data>
+  <data name="k12304" xml:space="preserve">
+    <value>1 Quarter</value>
+  </data>
+  <data name="k12305" xml:space="preserve">
+    <value>1 Quarter-A Team Total Score</value>
+  </data>
+  <data name="k12306" xml:space="preserve">
+    <value>1 Quarter-A Team Total Score</value>
+  </data>
+  <data name="k12307" xml:space="preserve">
+    <value>1 Quarter-B Team Total Score</value>
+  </data>
+  <data name="k12308" xml:space="preserve">
+    <value>1 Quarter-B Team Total Score</value>
+  </data>
+  <data name="k12401" xml:space="preserve">
+    <value>2 Quarter</value>
+  </data>
+  <data name="k12402" xml:space="preserve">
+    <value>2 Quarter</value>
+  </data>
+  <data name="k12403" xml:space="preserve">
+    <value>2 Quarter</value>
+  </data>
+  <data name="k12404" xml:space="preserve">
+    <value>2 Quarter</value>
+  </data>
+  <data name="k12405" xml:space="preserve">
+    <value>2 Quarter-A Team Total Score</value>
+  </data>
+  <data name="k12406" xml:space="preserve">
+    <value>2 Quarter-A Team Total Score</value>
+  </data>
+  <data name="k12407" xml:space="preserve">
+    <value>2 Quarter-B Team Total Score</value>
+  </data>
+  <data name="k12408" xml:space="preserve">
+    <value>2 Quarter-B Team Total Score</value>
+  </data>
+  <data name="k12501" xml:space="preserve">
+    <value>3 Quarter</value>
+  </data>
+  <data name="k12502" xml:space="preserve">
+    <value>3 Quarter</value>
+  </data>
+  <data name="k12503" xml:space="preserve">
+    <value>3 Quarter</value>
+  </data>
+  <data name="k12504" xml:space="preserve">
+    <value>3 Quarter</value>
+  </data>
+  <data name="k12505" xml:space="preserve">
+    <value>3 Quarter-A Team Total Score</value>
+  </data>
+  <data name="k12506" xml:space="preserve">
+    <value>3 Quarter-A Team Total Score</value>
+  </data>
+  <data name="k12507" xml:space="preserve">
+    <value>3 Quarter-B Team Total Score</value>
+  </data>
+  <data name="k12508" xml:space="preserve">
+    <value>3 Quarter-B Team Total Score</value>
+  </data>
+  <data name="k12601" xml:space="preserve">
+    <value>4 Quarter</value>
+  </data>
+  <data name="k12602" xml:space="preserve">
+    <value>4 Quarter</value>
+  </data>
+  <data name="k12603" xml:space="preserve">
+    <value>4 Quarter</value>
+  </data>
+  <data name="k12604" xml:space="preserve">
+    <value>4 Quarter</value>
+  </data>
+  <data name="k12605" xml:space="preserve">
+    <value>4 Quarter-A Team Total Score</value>
+  </data>
+  <data name="k12606" xml:space="preserve">
+    <value>4 Quarter-A Team Total Score</value>
+  </data>
+  <data name="k12607" xml:space="preserve">
+    <value>4 Quarter-B Team Total Score</value>
+  </data>
+  <data name="k12608" xml:space="preserve">
+    <value>4 Quarter-B Team Total Score</value>
+  </data>
+  <data name="k12109-09" xml:space="preserve">
+    <value>1st Half-Last Score</value>
+  </data>
+  <data name="k12209" xml:space="preserve">
+    <value>2nd Half-First Basket</value>
+  </data>
+  <data name="k12309-09" xml:space="preserve">
+    <value>1 Quarter-Last Score</value>
+  </data>
+  <data name="k12409" xml:space="preserve">
+    <value>2 Quarter-First Basket</value>
+  </data>
+  <data name="k12509-09" xml:space="preserve">
+    <value>3 Quarter-Last Score</value>
+  </data>
+  <data name="k12609" xml:space="preserve">
+    <value>4 Quarter-First Basket</value>
+  </data>
+  <data name="k12010" xml:space="preserve">
+    <value>Full Time-(N) 3 Points</value>
+  </data>
+  <data name="k12010-09" xml:space="preserve">
+    <value>Full Time-Last 3 Points</value>
+  </data>
+  <data name="k12410" xml:space="preserve">
+    <value>2 Quarter-(N) 3 Points</value>
+  </data>
+  <data name="k12410-09" xml:space="preserve">
+    <value>2 Quarter-Last 3 Points</value>
+  </data>
+  <data name="k12510" xml:space="preserve">
+    <value>3 Quarter-(N) 3 Points</value>
+  </data>
+  <data name="k12510-09" xml:space="preserve">
+    <value>3 Quarter-Last 3 Points</value>
+  </data>
+  <data name="k12610" xml:space="preserve">
+    <value>4 Quarter-(N) 3 Points</value>
+  </data>
+  <data name="k12610-09" xml:space="preserve">
+    <value>4 Quarter-Last 3 Points</value>
+  </data>
+  <data name="k12011" xml:space="preserve">
+    <value>Full Time-(N) Free Throw</value>
+  </data>
+  <data name="k12011-09" xml:space="preserve">
+    <value>Full Time-Last Free Throw</value>
+  </data>
+  <data name="k12411" xml:space="preserve">
+    <value>2 Quarter-(N) Free Throw</value>
+  </data>
+  <data name="k12411-09" xml:space="preserve">
+    <value>2 Quarter-Last Free Throw</value>
+  </data>
+  <data name="k12511" xml:space="preserve">
+    <value>3 Quarter-(N) Free Throw</value>
+  </data>
+  <data name="k12511-09" xml:space="preserve">
+    <value>3 Quarter-Last Free Throw</value>
+  </data>
+  <data name="k12611" xml:space="preserve">
+    <value>4 Quarter-(N) Free Throw</value>
+  </data>
+  <data name="k12611-09" xml:space="preserve">
+    <value>4 Quarter-Last Free Throw</value>
+  </data>
+  <data name="k12012" xml:space="preserve">
+    <value>Full Time-Race to first (N) points</value>
+  </data>
+  <data name="k12412" xml:space="preserve">
+    <value>2 Quarter-Race to first (N) points</value>
+  </data>
+  <data name="k12512" xml:space="preserve">
+    <value>3 Quarter-Race to first (N) points</value>
+  </data>
+  <data name="k12612" xml:space="preserve">
+    <value>4 Quarter-Race to first (N) points</value>
+  </data>
+  <data name="k12021" xml:space="preserve">
+    <value>Full Time-First Score</value>
+  </data>
+  <data name="k12022" xml:space="preserve">
+    <value>Full Time-Last Score</value>
+  </data>
+  <data name="k12023" xml:space="preserve">
+    <value>Full Time-Highest Scoring Quarter</value>
+  </data>
+  <data name="k12701" xml:space="preserve">
+    <value>Full Time-Total 3 Points</value>
+  </data>
+  <data name="k12704" xml:space="preserve">
+    <value>Full Time-Total Assists</value>
+  </data>
+  <data name="k12707" xml:space="preserve">
+    <value>Full Time-Total Rebounds</value>
+  </data>
+  <data name="k12710" xml:space="preserve">
+    <value>Full Time-Total Steals</value>
+  </data>
+  <data name="k12713" xml:space="preserve">
+    <value>Full Time-Total Blocked</value>
+  </data>
+  <data name="k12716" xml:space="preserve">
+    <value>Full Time-Total Free Throws Scored</value>
+  </data>
+  <data name="k12719" xml:space="preserve">
+    <value>Full Time-Total Turnovers</value>
+  </data>
+  <data name="k12802" xml:space="preserve">
+    <value>Full Time-(N) Foul</value>
+  </data>
+  <data name="k12802-09" xml:space="preserve">
+    <value>Full Time-Last Foul</value>
+  </data>
+  <data name="k12804" xml:space="preserve">
+    <value>Full Time-(N) Time Out</value>
+  </data>
+  <data name="k12702" xml:space="preserve">
+    <value>Full Time-Total 3 Points</value>
+  </data>
+  <data name="k12703" xml:space="preserve">
+    <value>Full Time-Total 3 Points</value>
+  </data>
+  <data name="k12705" xml:space="preserve">
+    <value>Full Time-Total Assists</value>
+  </data>
+  <data name="k12706" xml:space="preserve">
+    <value>Full Time-Total Assists</value>
+  </data>
+  <data name="k12708" xml:space="preserve">
+    <value>Full Time-Total Rebounds</value>
+  </data>
+  <data name="k12709" xml:space="preserve">
+    <value>Full Time-Total Rebounds</value>
+  </data>
+  <data name="k12711" xml:space="preserve">
+    <value>Full Time-Total Steals</value>
+  </data>
+  <data name="k12712" xml:space="preserve">
+    <value>Full Time-Total Steals</value>
+  </data>
+  <data name="k12714" xml:space="preserve">
+    <value>Full Time-Total Blocked</value>
+  </data>
+  <data name="k12715" xml:space="preserve">
+    <value>Full Time-Total Blocked</value>
+  </data>
+  <data name="k12717" xml:space="preserve">
+    <value>Full Time-Total Free Throws Scored</value>
+  </data>
+  <data name="k12718" xml:space="preserve">
+    <value>Full Time-Total Free Throws Scored</value>
+  </data>
+  <data name="k12720" xml:space="preserve">
+    <value>Full Time-Total Turnovers</value>
+  </data>
+  <data name="k12721" xml:space="preserve">
+    <value>Full Time-Total Turnovers</value>
+  </data>
+  <data name="Ml" xml:space="preserve">
+    <value>ML</value>
+  </data>
+  <data name="Oe" xml:space="preserve">
+    <value>OE</value>
+  </data>
+  <data name="Ou" xml:space="preserve">
+    <value>OU</value>
+  </data>
+  <data name="Hdp" xml:space="preserve">
+    <value>HDP</value>
+  </data>
+  <data name="SettingLock" xml:space="preserve">
+    <value>Lock</value>
+  </data>
+  <data name="SettingUnlock" xml:space="preserve">
+    <value>Unlock</value>
+  </data>
+  <data name="k12112" xml:space="preserve">
+    <value>1st Half-Race to first (N) points</value>
+  </data>
+  <data name="k12212" xml:space="preserve">
+    <value>2nd Half-Race to first (N) points</value>
+  </data>
+  <data name="k12312" xml:space="preserve">
+    <value>1 Quarter-Race to first (N) points</value>
+  </data>
+</root>
