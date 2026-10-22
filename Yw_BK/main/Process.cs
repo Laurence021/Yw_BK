@@ -3143,17 +3143,18 @@ namespace Yw_BK.main
                             //設定發送時間
                             Stopwatch stopwatch = Stopwatch.StartNew();
                             //入庫執行
-                            var response = Config.OddsServiceClient.BatchUpdate(request);
+                            var response = Config.OddsServiceClient.BatchUpdateV2(request);
                             stopwatch.Stop();
 
-                            if (!string.IsNullOrEmpty(response.ErrorMsg))
+                            //1:完成
+                            if (response.ResultStatus != 1)
                             {
                                 LogFile.SetLog(LogMode.Error, $"{response.GetType().Name} => {response.ErrorMsg}");
                                 continue;
                             }
 
                             //加入日誌佇列
-                            LogProcess.AddQueue(new UpdateMainOddsLog(Config.source, "", UpdateMainOddsLog.LogType.Close, request.Data, response.Result, stopwatch.Elapsed, Config.entrance));
+                            LogProcess.AddQueue(new UpdateMainOddsLog(Config.source, "", UpdateMainOddsLog.LogType.Close, request.Data, response.GameServerResult, stopwatch.Elapsed, Config.entrance));
                         }
                     });
 

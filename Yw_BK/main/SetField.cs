@@ -1635,10 +1635,10 @@ namespace Yw_BK.main
                         request.Data.AddRange(dt);
                         //設定發送時間
                         Stopwatch stopwatch = Stopwatch.StartNew();
-                        var response = Config.OddsServiceClient.BatchUpdate(request);
+                        var response = Config.OddsServiceClient.BatchUpdateV2(request);
                         stopwatch.Stop();
 
-                        if (!string.IsNullOrEmpty(response.ErrorMsg))
+                        if (response.ResultStatus != 1)
                         {
                             Display.SetDictInfo(Display.Type.Error, response.ErrorMsg);
                             LogFile.SetLog(LogMode.Error, $"{response.GetType().Name} => {response.ErrorMsg}");
@@ -1646,17 +1646,21 @@ namespace Yw_BK.main
                         }
 
                         //收集回傳表
-                        var messageInfo = response.Result.Select(a => new UpdateMessageInfo { GId = a.GId, Gpdm = a.Gpdm, UpdateTime = TimeStampHelper.ToLocalDateTime(a.UpdateDate) }).ToArray();
+                        var messageInfo = from a in response.GameServerResult.Result
+                                          join b in response.GameServerResult.GKSS on new { a.GId, a.KType, a.SetType } equals new { b.GId, b.KType, b.SetType }
+                                          where b.IsLockSuccess
+                                          select new UpdateMessageInfo { GId = a.GId, Gpdm = a.Gpdm, UpdateTime = TimeStampHelper.ToLocalDateTime(a.UpdateDate) };
+
                         systemMessage.GpdmInfo.AddRange(messageInfo);
                         //檢查是否更新kMode
-                        Task.Run(() => { UpdataKmode(response.Result); });
+                        Task.Run(() => { UpdataKmode(response.GameServerResult); });
 
                         //加入日誌佇列
-                        LogProcess.AddQueue(new UpdateMainOddsLog(Config.source, gpType.ToString(), UpdateMainOddsLog.LogType.Update, request.Data, response.Result, stopwatch.Elapsed, Config.entrance));
+                        LogProcess.AddQueue(new UpdateMainOddsLog(Config.source, gpType.ToString(), UpdateMainOddsLog.LogType.Update, request.Data, response.GameServerResult, stopwatch.Elapsed, Config.entrance));
 
-                        updCount += response.Result.Count;
-                        ClearUpdateStatue(dt, dicSourceOdds);
-                        CheckLineAtChangeHandle(response.Result, gpType);
+                        updCount += response.GameServerResult.Result.Count;
+                        ClearUpdateStatue(dt, dicSourceOdds, response.GameServerResult.GKSS);
+                        CheckLineAtChangeHandle(response.GameServerResult, gpType);
                     }
 
                     //關閉提醒加入佇列
@@ -1736,12 +1740,12 @@ namespace Yw_BK.main
         /// 更新kMode
         /// </summary>
         /// <param name="list"></param>
-        private static void UpdataKmode(IEnumerable<BkOddsUpdateResultDto> list)
+        private static void UpdataKmode(BkOddsUpdateGameServerResultDto list)
         {
             //RT互換列表
             List<int> changeList = new List<int>();
 
-            foreach (var row in list)
+            foreach (var row in list.Result)
             {
                 if (row.OldLineAt != row.NewLineAt)
                 {
@@ -1970,7 +1974,7 @@ namespace Yw_BK.main
         /// </summary>
         /// <param name="list">入庫的暫存表</param>
         /// <param name="dicSourceOdds">來源PL暫存字典</param>
-        private static void ClearUpdateStatue(IEnumerable<BkOddsUpdateDto> list, Dictionary<int, decimal> dicSourceOdds)
+        private static void ClearUpdateStatue(IEnumerable<BkOddsUpdateDto> list, Dictionary<int, decimal> dicSourceOdds, IEnumerable<GKSSDto>? gKSSes = null)
         {
             //判斷是否更新成功
             foreach (var row in list)
@@ -1983,13 +1987,16 @@ namespace Yw_BK.main
                 bool lineAt = row.LineAt;
                 int line = row.Line;
                 decimal odds = (decimal)row.Odds;
+                int setType = row.SetType;
+                bool isLockSuccess = gKSSes == null || gKSSes.Where(a => a.GId == gId && a.KType == kType && a.SetType == setType).First().IsLockSuccess;
 
                 //取對應物件
                 if (Config.gIdDic.TryGetValue(gId, out string gameKey)
                     && Config.gameDic.TryGetValue(gameKey, out GameInfo gameInfo)
                     && gameInfo.ObjDic.TryGetValue(gpdm, out GpdmInfo gpdmInfo)
                     && gpdmInfo.TryGetValue(kType, out KInfo kInfo)
-                    && kInfo.BInfoDic.TryGetValue(bType, out BInfo bInfo))
+                    && kInfo.BInfoDic.TryGetValue(bType, out BInfo bInfo)
+                    && isLockSuccess)
                 {
                     gpdmInfo.IsDisplayChange = false;
                     kInfo.IsUpdate = false;
@@ -2038,7 +2045,7 @@ namespace Yw_BK.main
         /// </summary>
         /// <param name="resultDataTable">DB更新完的傳回表</param>
         /// <param name="gpType">GP類型</param>
-        private static void CheckLineAtChangeHandle(IEnumerable<BkOddsUpdateResultDto> list, GpType gpType)
+        private static void CheckLineAtChangeHandle(BkOddsUpdateGameServerResultDto list, GpType gpType)
         {
             //JZ來源不須判斷
             if (Config.source == Source.JZ) { return; }
@@ -2047,7 +2054,7 @@ namespace Yw_BK.main
             List<BkOddsUpdateDto> dtMainOdds = new List<BkOddsUpdateDto>();
 
             //篩選lineAt互換須脫勾的對應玩法
-            var groupList = list.Where(row => row.IsChangeLineAt)
+            var groupList = list.Result.Where(row => row.IsChangeLineAt)
                 .GroupBy(row => new { gId = row.GId, gpdm = row.Gpdm });
 
             foreach (var group in groupList)
@@ -2083,17 +2090,17 @@ namespace Yw_BK.main
                 request.Data.AddRange(dtMainOdds);
                 //設定發送時間
                 Stopwatch stopwatch = Stopwatch.StartNew();
-                var response = Config.OddsServiceClient.BatchUpdate(request);
+                var response = Config.OddsServiceClient.BatchUpdateV2(request);
                 stopwatch.Stop();
 
-                if (!string.IsNullOrEmpty(response.ErrorMsg))
+                if (response.ResultStatus != 1)
                 {
                     Display.SetDictInfo(Display.Type.Error, response.ErrorMsg);
                     LogFile.SetLog(LogMode.Error, $"{response.GetType().Name} => {response.ErrorMsg}");
                 }
                 else
                 {
-                    LogProcess.AddQueue(new UpdateMainOddsLog(Config.source, gpType.ToString(), UpdateMainOddsLog.LogType.Update, request.Data, response.Result, stopwatch.Elapsed, Config.entrance));
+                    LogProcess.AddQueue(new UpdateMainOddsLog(Config.source, gpType.ToString(), UpdateMainOddsLog.LogType.Update, request.Data, response.GameServerResult, stopwatch.Elapsed, Config.entrance));
                 }
             }
         }

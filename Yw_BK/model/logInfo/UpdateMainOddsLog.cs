@@ -37,7 +37,7 @@ namespace Yw_BK.model.logInfo
         /// <summary>
         /// 資料
         /// </summary>
-        public IEnumerable<BkOddsUpdateResultDto> ResultData { get; }
+        public BkOddsUpdateGameServerResultDto ResultData { get; }
 
         /// <summary>
         /// 更新主庫玩法日誌
@@ -50,7 +50,7 @@ namespace Yw_BK.model.logInfo
         /// <param name="execTime">動作耗時</param>
         /// <param name="entrance">平台入口</param>
         /// <param name="remark">備註</param>
-        public UpdateMainOddsLog(Source source, string gpType, LogType logType, IEnumerable<BkOddsUpdateDto> sendData, IEnumerable<BkOddsUpdateResultDto> resultData, TimeSpan? execTime = null, Entrance entrance = Entrance.None, string remark = "") : base(source, gpType, execTime, entrance, remark)
+        public UpdateMainOddsLog(Source source, string gpType, LogType logType, IEnumerable<BkOddsUpdateDto> sendData, BkOddsUpdateGameServerResultDto resultData, TimeSpan? execTime = null, Entrance entrance = Entrance.None, string remark = "") : base(source, gpType, execTime, entrance, remark)
         {
             SendData = sendData;
             ResultData = resultData;
@@ -81,8 +81,9 @@ namespace Yw_BK.model.logInfo
             string message = $"{Remark}{Environment.NewLine}";
 
             var result = from a in SendData
-                         join b in ResultData on a.Id equals b.Id into c
+                         join b in ResultData.Result on a.Id equals b.Id into c
                          from d in c.DefaultIfEmpty()
+                         join e in ResultData.GKSS on new { a.GId, a.KType, a.SetType } equals new { e.GId, e.KType, e.SetType }
                          select new
                          {
                              a.Id,
@@ -109,22 +110,23 @@ namespace Yw_BK.model.logInfo
                              NewLineAt = d?.NewLineAt.GetHashCode(),
                              IsChangeLineAt = d?.IsChangeLineAt,
                              Result = d == null ? 0 : 1,
+                             e.IsLockSuccess,
                          };
 
             //輕量化日誌
             var group = result.ToLookup(element => element.GId,
-                                        element => new { element.Gpdm, element.Id, element.KType, element.BType, element.SetType, element.SourceId, element.IsFollow, element.Display, element.IsOpen, element.SourceOpen, element.LineAt, element.Line, element.Odds, element.Rate31, element.LineJump, element.LineModify, element.OddsJump, element.OddsModify, element.Odds31, element.OldLineAt, element.NewLineAt, element.Result })
+                                        element => new { element.Gpdm, element.Id, element.KType, element.BType, element.SetType, element.SourceId, element.IsFollow, element.Display, element.IsOpen, element.SourceOpen, element.LineAt, element.Line, element.Odds, element.Rate31, element.LineJump, element.LineModify, element.OddsJump, element.OddsModify, element.Odds31, element.OldLineAt, element.NewLineAt, element.Result, element.IsLockSuccess })
                                         .ToDictionary(group1 => group1.Key,
                                                       group1 => group1.ToLookup(element => element.Gpdm,
-                                                                      element => new { element.Id, element.KType, element.BType, element.SetType, element.SourceId, element.IsFollow, element.Display, element.IsOpen, element.SourceOpen, element.LineAt, element.Line, element.Odds, element.Rate31, element.LineJump, element.LineModify, element.OddsJump, element.OddsModify, element.Odds31, element.OldLineAt, element.NewLineAt, element.Result })
+                                                                      element => new { element.Id, element.KType, element.BType, element.SetType, element.SourceId, element.IsFollow, element.Display, element.IsOpen, element.SourceOpen, element.LineAt, element.Line, element.Odds, element.Rate31, element.LineJump, element.LineModify, element.OddsJump, element.OddsModify, element.Odds31, element.OldLineAt, element.NewLineAt, element.Result, element.IsLockSuccess })
                                                       .ToDictionary(group2 => group2.Key,
                                                                     group2 => group2.ToLookup(element => element.KType,
-                                                                                    element => new { element.Id, element.BType, element.SetType, element.SourceId, element.IsFollow, element.Display, element.IsOpen, element.SourceOpen, element.LineAt, element.Line, element.Odds, element.Rate31, element.LineJump, element.LineModify, element.OddsJump, element.OddsModify, element.Odds31, element.OldLineAt, element.NewLineAt, element.Result })
+                                                                                    element => new { element.Id, element.BType, element.SetType, element.SourceId, element.IsFollow, element.Display, element.IsOpen, element.SourceOpen, element.LineAt, element.Line, element.Odds, element.Rate31, element.LineJump, element.LineModify, element.OddsJump, element.OddsModify, element.Odds31, element.OldLineAt, element.NewLineAt, element.Result, element.IsLockSuccess })
                                                                     .ToDictionary(group3 => group3.Key)));
 
             var reduceLog = JObject.FromObject(group);
 
-            var first = ResultData.FirstOrDefault();
+            var first = ResultData.Result.FirstOrDefault();
             string dbTime = "";
 
             if (first != null)
@@ -136,7 +138,7 @@ namespace Yw_BK.model.logInfo
             {
                 {"耗時",$"{ExecTime?.TotalMilliseconds}ms" },
                 {"資料庫時間", dbTime },
-                {"影響/總筆數",$"{ResultData.Count(a=>a.Id>0)}/{SendData.Count()}" }
+                {"影響/總筆數",$"{ResultData.Result.Count(a=>a.Id>0)}/{SendData.Count()}" }
             };
 
             JObject jobj = JObject.FromObject(dic);

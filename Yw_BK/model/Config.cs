@@ -1299,17 +1299,17 @@ namespace Yw_BK.model
                     //設定發送時間
                     Stopwatch stopwatch = Stopwatch.StartNew();
                     //入庫執行
-                    var response = OddsServiceClient.BatchUpdate(request);
+                    var response = OddsServiceClient.BatchUpdateV2(request);
                     stopwatch.Stop();
 
-                    if (!string.IsNullOrEmpty(response.ErrorMsg))
+                    if (response.ResultStatus != 1)
                     {
                         LogFile.SetLog(LogMode.Error, $"{response.GetType().Name} => {response.ErrorMsg}");
                         continue;
                     }
 
                     //加入日誌佇列
-                    LogProcess.AddQueue(new UpdateMainOddsLog(source, "", UpdateMainOddsLog.LogType.Stop, request.Data, response.Result, stopwatch.Elapsed, Config.entrance));
+                    LogProcess.AddQueue(new UpdateMainOddsLog(source, "", UpdateMainOddsLog.LogType.Stop, request.Data, response.GameServerResult, stopwatch.Elapsed, Config.entrance));
                 }
 
                 #endregion
