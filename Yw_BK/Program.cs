@@ -136,21 +136,16 @@ namespace Yw_BK
 
                         break;
                     case 7:
-                        name = string.Format(name, "VBET");
-                        Config.source = Source.VBET;
-                        Config.lang = Lang.En;
-                        break;
-                    case 8:
                         name = string.Format(name, "SBO(NBA)");
                         Config.source = Source.SBO;
                         Config.lang = Lang.Cn;
                         break;
-                    case 9:
+                    case 8:
                         name = string.Format(name, "MyStake");
                         Config.source = Source.MyStake;
                         Config.lang = Lang.En;
                         break;
-                    case 10:
+                    case 9:
                         name = string.Format(name, "Radar");
                         Config.source = Source.Radar;
                         Config.lang = Lang.En;
@@ -221,15 +216,12 @@ namespace Yw_BK
                                 Application.Run(new FrmSB());
                                 break;
                             case 7:
-                                Application.Run(new FrmVBET());
-                                break;
-                            case 8:
                                 Application.Run(new FrmSBO());
                                 break;
-                            case 9:
+                            case 8:
                                 Application.Run(new FrmMyStake());
                                 break;
-                            case 10:
+                            case 9:
                                 Application.Run(new FrmRadar());
                                 break;
                         }

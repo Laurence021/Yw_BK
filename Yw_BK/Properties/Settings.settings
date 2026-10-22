@@ -23,9 +23,6 @@
     <Setting Name="UrlSB" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="UrlVBET" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="UrlLEO" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>

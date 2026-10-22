@@ -60,8 +60,6 @@ namespace Yw_BK.main
         //JZ連線方法
         private ConnectJZ _connectJZ;
         private ConnectJZ _connectJZ_Ayh;
-        //VB連線方法
-        private ConnectVBET _connectVB;
         //SB共用方法
         private CommonSB _commonSB;
         //PIN請求方法
@@ -424,18 +422,6 @@ namespace Yw_BK.main
                 Common.SetTimer(_timerZdQueue, 1, false, new ElapsedEventHandler((s, e) => QueueTick(s, e, Config.zdQueue)));
 
                 #endregion
-            }
-            else if (Config.source == Source.VBET)
-            {
-                //實體化VB連線物件
-                _connectVB = new ConnectVBET(Config.sport);
-                //委派重新訂閱事件
-                Config.OnConfigChanged += () => { if (Config.isOpenZd) { _connectVB.OutsideSubscribe(); } };
-
-                //登入計時器
-                Common.SetTimer(_timerLogin, 1500, false, LoginTick);
-                //Zd佇列
-                Common.SetTimer(_timerZdQueue, 1, false, new ElapsedEventHandler((s, e) => QueueTick(s, e, Config.zdQueue)));
             }
             else if (Config.source == Source.SBO)
             {
@@ -887,19 +873,6 @@ namespace Yw_BK.main
                             //1:賽事關閉 0:正常
                             threadInfos[GpType.Zd].DataId = Config.isOpenZd ? 0 : 1;
                             threadInfos[GpType.Ds].DataId = Config.isOpenDs ? 0 : 1;
-
-                            break;
-                        case Source.VBET:
-
-                            //連線VB
-                            _connectVB.Login(Config.url, (a, b, c) => { if (Config.isOpenZd) { new ReqVBET().GetResponse(a, b, c); } }, Config.isOpenZd, proxy);
-                            msg = $"{YwCore.Properties.Resources.ConnectCount}:{_connectVB.userList.Where(x => x.Status == 1).Count()}/{_connectVB.userList.Length}";
-
-                            //清空訊息
-                            Display.SetDictInfo(Display.Type.Custom, msg);
-
-                            //1:賽事關閉 0:正常
-                            threadInfos[GpType.Zd].DataId = Config.isOpenZd ? 0 : 1;
 
                             break;
                         case Source.Radar:
@@ -1715,10 +1688,6 @@ namespace Yw_BK.main
                         else if (Config.source == Source.SB)
                         {
                             ParserSB.Parser(dataInfo, _commonSB);
-                        }
-                        else if (Config.source == Source.VBET)
-                        {
-                            ParserVBET.MoreParser(dataInfo, _connectVB);
                         }
                     }
                 }
@@ -3562,9 +3531,6 @@ namespace Yw_BK.main
                     break;
                 case Source.SB:
                     ready = FrmUser.users.Values.Any(v => v.Status == 1);
-                    break;
-                case Source.VBET:
-                    ready = _connectVB?.userList.Any(x => x.Status == 1) == true;
                     break;
                 case Source.Radar:
                     ready = _connectRadar?.IsOpen == true &&

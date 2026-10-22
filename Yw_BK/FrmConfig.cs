@@ -233,10 +233,6 @@ namespace Yw_BK
                     txbZpSec.Enabled = false;
                     ckbIsTrackOlympics.Visible = true;
                 }
-                else if (Config.source == Source.VBET)
-                {
-                    gbDs.Enabled = false;
-                }
                 else if (Config.source == Source.SBO)
                 {
                     ckbZp.Enabled = false;

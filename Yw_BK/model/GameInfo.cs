@@ -677,7 +677,7 @@ namespace Yw_BK.model
             }
 
             //比分、時間、狀態比對區塊，需為對應頁面才比對
-            if (tmpSource == Source.BET365 || tmpSource == Source.JZ || tmpSource == Source.VBET || tmpSource == Source.SB || tmpSource == Source.Radar ||
+            if (tmpSource == Source.BET365 || tmpSource == Source.JZ || tmpSource == Source.SB || tmpSource == Source.Radar ||
                 (tmpSource == Source.XB && gpType == GpType.Zd) ||
                 (tmpSource == Source.MyStake && gpType == GpType.ZdMore))
             {

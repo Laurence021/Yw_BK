@@ -29,166 +29,150 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmChoose));
-            this.gbSelectSource = new System.Windows.Forms.GroupBox();
-            this.btnRadar = new System.Windows.Forms.Button();
-            this.btnMyStake = new System.Windows.Forms.Button();
-            this.btnSBO = new System.Windows.Forms.Button();
-            this.btnVBET = new System.Windows.Forms.Button();
-            this.btnSB = new System.Windows.Forms.Button();
-            this.btnJZ = new System.Windows.Forms.Button();
-            this.btn365ZD = new System.Windows.Forms.Button();
-            this.btnPIN = new System.Windows.Forms.Button();
-            this.btnXB = new System.Windows.Forms.Button();
-            this.gbSelectSource.SuspendLayout();
-            this.SuspendLayout();
+            gbSelectSource = new GroupBox();
+            btnRadar = new Button();
+            btnMyStake = new Button();
+            btnSBO = new Button();
+            btnSB = new Button();
+            btnJZ = new Button();
+            btn365ZD = new Button();
+            btnPIN = new Button();
+            btnXB = new Button();
+            gbSelectSource.SuspendLayout();
+            SuspendLayout();
             // 
             // gbSelectSource
             // 
-            this.gbSelectSource.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbSelectSource.Controls.Add(this.btnRadar);
-            this.gbSelectSource.Controls.Add(this.btnMyStake);
-            this.gbSelectSource.Controls.Add(this.btnSBO);
-            this.gbSelectSource.Controls.Add(this.btnVBET);
-            this.gbSelectSource.Controls.Add(this.btnSB);
-            this.gbSelectSource.Controls.Add(this.btnJZ);
-            this.gbSelectSource.Controls.Add(this.btn365ZD);
-            this.gbSelectSource.Controls.Add(this.btnPIN);
-            this.gbSelectSource.Controls.Add(this.btnXB);
-            this.gbSelectSource.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.gbSelectSource.Location = new System.Drawing.Point(12, 12);
-            this.gbSelectSource.Name = "gbSelectSource";
-            this.gbSelectSource.Size = new System.Drawing.Size(162, 337);
-            this.gbSelectSource.TabIndex = 1;
-            this.gbSelectSource.TabStop = false;
-            this.gbSelectSource.Text = "選擇來源";
+            gbSelectSource.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            gbSelectSource.Controls.Add(btnRadar);
+            gbSelectSource.Controls.Add(btnMyStake);
+            gbSelectSource.Controls.Add(btnSBO);
+            gbSelectSource.Controls.Add(btnSB);
+            gbSelectSource.Controls.Add(btnJZ);
+            gbSelectSource.Controls.Add(btn365ZD);
+            gbSelectSource.Controls.Add(btnPIN);
+            gbSelectSource.Controls.Add(btnXB);
+            gbSelectSource.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            gbSelectSource.Location = new Point(12, 12);
+            gbSelectSource.Name = "gbSelectSource";
+            gbSelectSource.Size = new Size(162, 297);
+            gbSelectSource.TabIndex = 1;
+            gbSelectSource.TabStop = false;
+            gbSelectSource.Text = "選擇來源";
             // 
             // btnRadar
             // 
-            this.btnRadar.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRadar.Location = new System.Drawing.Point(7, 297);
-            this.btnRadar.Name = "btnRadar";
-            this.btnRadar.Size = new System.Drawing.Size(148, 30);
-            this.btnRadar.TabIndex = 10;
-            this.btnRadar.Tag = "10";
-            this.btnRadar.Text = "Radar";
-            this.btnRadar.UseVisualStyleBackColor = true;
-            this.btnRadar.Click += Button_Click;
+            btnRadar.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRadar.Location = new Point(6, 258);
+            btnRadar.Name = "btnRadar";
+            btnRadar.Size = new Size(148, 30);
+            btnRadar.TabIndex = 9;
+            btnRadar.Tag = "9";
+            btnRadar.Text = "Radar";
+            btnRadar.UseVisualStyleBackColor = true;
+            btnRadar.Click += Button_Click;
             // 
             // btnMyStake
             // 
-            this.btnMyStake.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMyStake.Location = new System.Drawing.Point(6, 261);
-            this.btnMyStake.Name = "btnMyStake";
-            this.btnMyStake.Size = new System.Drawing.Size(148, 30);
-            this.btnMyStake.TabIndex = 9;
-            this.btnMyStake.Tag = "9";
-            this.btnMyStake.Text = "MyStake";
-            this.btnMyStake.UseVisualStyleBackColor = true;
-            this.btnMyStake.Click += Button_Click;
+            btnMyStake.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnMyStake.Location = new Point(6, 224);
+            btnMyStake.Name = "btnMyStake";
+            btnMyStake.Size = new Size(148, 30);
+            btnMyStake.TabIndex = 8;
+            btnMyStake.Tag = "8";
+            btnMyStake.Text = "MyStake";
+            btnMyStake.UseVisualStyleBackColor = true;
+            btnMyStake.Click += Button_Click;
             // 
             // btnSBO
             // 
-            this.btnSBO.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSBO.Location = new System.Drawing.Point(6, 225);
-            this.btnSBO.Name = "btnSBO";
-            this.btnSBO.Size = new System.Drawing.Size(148, 30);
-            this.btnSBO.TabIndex = 8;
-            this.btnSBO.Tag = "8";
-            this.btnSBO.Text = "SBO(NBA)";
-            this.btnSBO.UseVisualStyleBackColor = true;
-            this.btnSBO.Click += Button_Click;
-            // 
-            // btnVBET
-            // 
-            this.btnVBET.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnVBET.Location = new System.Drawing.Point(6, 191);
-            this.btnVBET.Name = "btnVBET";
-            this.btnVBET.Size = new System.Drawing.Size(148, 30);
-            this.btnVBET.TabIndex = 7;
-            this.btnVBET.Tag = "7";
-            this.btnVBET.Text = "VBET";
-            this.btnVBET.UseVisualStyleBackColor = true;
-            this.btnVBET.Click += Button_Click;
+            btnSBO.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSBO.Location = new Point(6, 190);
+            btnSBO.Name = "btnSBO";
+            btnSBO.Size = new Size(148, 30);
+            btnSBO.TabIndex = 7;
+            btnSBO.Tag = "7";
+            btnSBO.Text = "SBO(NBA)";
+            btnSBO.UseVisualStyleBackColor = true;
+            btnSBO.Click += Button_Click;
             // 
             // btnSB
             // 
-            this.btnSB.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSB.Location = new System.Drawing.Point(6, 157);
-            this.btnSB.Name = "btnSB";
-            this.btnSB.Size = new System.Drawing.Size(148, 30);
-            this.btnSB.TabIndex = 6;
-            this.btnSB.Tag = "6";
-            this.btnSB.Text = "SB";
-            this.btnSB.UseVisualStyleBackColor = true;
-            this.btnSB.Click += Button_Click;
+            btnSB.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSB.Location = new Point(6, 156);
+            btnSB.Name = "btnSB";
+            btnSB.Size = new Size(148, 30);
+            btnSB.TabIndex = 6;
+            btnSB.Tag = "6";
+            btnSB.Text = "SB";
+            btnSB.UseVisualStyleBackColor = true;
+            btnSB.Click += Button_Click;
             // 
             // btnJZ
             // 
-            this.btnJZ.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnJZ.Location = new System.Drawing.Point(6, 123);
-            this.btnJZ.Name = "btnJZ";
-            this.btnJZ.Size = new System.Drawing.Size(148, 30);
-            this.btnJZ.TabIndex = 5;
-            this.btnJZ.Tag = "5";
-            this.btnJZ.Text = "山";
-            this.btnJZ.UseVisualStyleBackColor = true;
-            this.btnJZ.Click += Button_Click;
+            btnJZ.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnJZ.Location = new Point(6, 122);
+            btnJZ.Name = "btnJZ";
+            btnJZ.Size = new Size(148, 30);
+            btnJZ.TabIndex = 5;
+            btnJZ.Tag = "5";
+            btnJZ.Text = "山";
+            btnJZ.UseVisualStyleBackColor = true;
+            btnJZ.Click += Button_Click;
             // 
             // btn365ZD
             // 
-            this.btn365ZD.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn365ZD.Location = new System.Drawing.Point(6, 88);
-            this.btn365ZD.Name = "btn365ZD";
-            this.btn365ZD.Size = new System.Drawing.Size(148, 30);
-            this.btn365ZD.TabIndex = 3;
-            this.btn365ZD.Tag = "3";
-            this.btn365ZD.Text = "365ZD";
-            this.btn365ZD.UseVisualStyleBackColor = true;
-            this.btn365ZD.Click += Button_Click;
+            btn365ZD.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btn365ZD.Location = new Point(6, 88);
+            btn365ZD.Name = "btn365ZD";
+            btn365ZD.Size = new Size(148, 30);
+            btn365ZD.TabIndex = 3;
+            btn365ZD.Tag = "3";
+            btn365ZD.Text = "365ZD";
+            btn365ZD.UseVisualStyleBackColor = true;
+            btn365ZD.Click += Button_Click;
             // 
             // btnPIN
             // 
-            this.btnPIN.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPIN.Location = new System.Drawing.Point(6, 20);
-            this.btnPIN.Name = "btnPIN";
-            this.btnPIN.Size = new System.Drawing.Size(148, 30);
-            this.btnPIN.TabIndex = 1;
-            this.btnPIN.Tag = "1";
-            this.btnPIN.Text = "PIN";
-            this.btnPIN.UseVisualStyleBackColor = true;
-            this.btnPIN.Click += Button_Click;
+            btnPIN.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPIN.Location = new Point(6, 20);
+            btnPIN.Name = "btnPIN";
+            btnPIN.Size = new Size(148, 30);
+            btnPIN.TabIndex = 1;
+            btnPIN.Tag = "1";
+            btnPIN.Text = "PIN";
+            btnPIN.UseVisualStyleBackColor = true;
+            btnPIN.Click += Button_Click;
             // 
             // btnXB
             // 
-            this.btnXB.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnXB.Location = new System.Drawing.Point(6, 54);
-            this.btnXB.Name = "btnXB";
-            this.btnXB.Size = new System.Drawing.Size(148, 30);
-            this.btnXB.TabIndex = 2;
-            this.btnXB.Tag = "2";
-            this.btnXB.Text = "XB";
-            this.btnXB.UseVisualStyleBackColor = true;
-            this.btnXB.Click += Button_Click;
+            btnXB.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnXB.Location = new Point(6, 54);
+            btnXB.Name = "btnXB";
+            btnXB.Size = new Size(148, 30);
+            btnXB.TabIndex = 2;
+            btnXB.Tag = "2";
+            btnXB.Text = "XB";
+            btnXB.UseVisualStyleBackColor = true;
+            btnXB.Click += Button_Click;
             // 
             // FrmChoose
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(186, 361);
-            this.ControlBox = false;
-            this.Controls.Add(this.gbSelectSource);
-            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FrmChoose";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmChoose";
-            this.gbSelectSource.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(6F, 12F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(186, 351);
+            ControlBox = false;
+            Controls.Add(gbSelectSource);
+            Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FrmChoose";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FrmChoose";
+            gbSelectSource.ResumeLayout(false);
+            ResumeLayout(false);
 
         }
 
@@ -200,7 +184,6 @@
         private System.Windows.Forms.Button btn365ZD;
         private System.Windows.Forms.Button btnJZ;
         private System.Windows.Forms.Button btnSB;
-        private System.Windows.Forms.Button btnVBET;
         private System.Windows.Forms.Button btnSBO;
         private System.Windows.Forms.Button btnMyStake;
         private System.Windows.Forms.Button btnRadar;

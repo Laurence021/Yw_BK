@@ -66,7 +66,7 @@ namespace Yw_BK.model
         /// <summary>
         /// 版本號
         /// </summary>
-        public static string version = $"1.1.6.95-2({new DirectoryInfo(Application.StartupPath).Parent.Name.Replace(".", "")})";
+        public static string version = $"1.1.7.12({new DirectoryInfo(Application.StartupPath).Parent.Name.Replace(".", "")})";
         /// <summary>
         /// 來源網址
         /// </summary>

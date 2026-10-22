@@ -329,27 +329,6 @@ namespace Yw_BK
                 ckbAbnormal.Enabled = true;
                 ckbAbnormal.Visible = true;
             }
-            else if (Config.source == Source.VBET)
-            {
-                ckbDs.Enabled = false;
-                labDs.Enabled = false;
-                txbDs.Enabled = false;
-
-                ckbZp.Enabled = false;
-                labZp.Enabled = false;
-                txbZp.Enabled = false;
-
-                ckbDj.Enabled = false;
-                labDj.Enabled = false;
-                txbDj.Enabled = false;
-
-                ckbXb.Enabled = false;
-                labXb.Enabled = false;
-                txbXb.Enabled = false;
-
-                ckbDsTimeOut.Enabled = false;
-                txbDsTimeOut.Enabled = false;
-            }
 
             #endregion
 
